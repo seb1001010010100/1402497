@@ -11,5 +11,6 @@ public class Parametres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres);
         Log.d("MonEtiquette","Bonjour!");
+        Log.d("langue", this.getResources().getString(R.string.bienvenue));
     }
 }
