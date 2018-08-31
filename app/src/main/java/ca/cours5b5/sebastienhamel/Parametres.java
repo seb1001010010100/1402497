@@ -12,5 +12,16 @@ public class Parametres extends AppCompatActivity {
         setContentView(R.layout.activity_parametres);
         Log.d("MonEtiquette","Bonjour!");
         Log.d("langue", this.getResources().getString(R.string.bienvenue));
+        if(this.getResources().getBoolean(R.bool.est_portrait)){
+
+            Log.d("portrait",
+                    this.getResources().getString(R.string.bienvenue) + " (portrait)");
+
+        }else{
+
+            Log.d("portrait",
+                    this.getResources().getString(R.string.bienvenue) + " (paysage)");
+
+        }
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SebastienHamel</string>
+    <string name="bienvenue">Value</string>
+    <bool name="est_portrait">false</bool>
 </resources>
