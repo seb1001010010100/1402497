@@ -2,5 +2,8 @@
 <resources>
 
     <string name="bienvenue">Hello!</string>
+    <string name="hauteur">Height:</string>
+    <string name="largeur">Width:</string>
+    <string name="gagner">To Win:</string>
 
 </resources>
