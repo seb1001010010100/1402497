@@ -1,7 +1,6 @@
 package ca.cours5b5.sebastienhamel.vues;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -9,7 +8,7 @@ import android.widget.Spinner;
 import ca.cours5b5.sebastienhamel.R;
 import ca.cours5b5.sebastienhamel.globale.GConstantes;
 
-public class VParametres extends ConstraintLayout {
+public class VParametres extends Vue {
 
 
     public VParametres(Context context) {
