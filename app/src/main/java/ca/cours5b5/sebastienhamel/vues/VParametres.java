@@ -2,6 +2,7 @@ package ca.cours5b5.sebastienhamel.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -61,5 +62,13 @@ public class VParametres extends Vue {
 
         }
         spinnerHauteur.setSelection(GConstantes.HAUTEURDEFAUT - GConstantes.HAUTEURMIN);
+        Log.d("Atelier04","VParametres :: onFinishInflate");
     }
+
+    static{
+
+        Log.d("Atelier04","VParametres :: static");
+
+    }
+
 }
