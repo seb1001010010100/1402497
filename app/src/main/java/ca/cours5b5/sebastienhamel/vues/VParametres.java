@@ -8,9 +8,11 @@ import android.widget.Spinner;
 
 import ca.cours5b5.sebastienhamel.R;
 import ca.cours5b5.sebastienhamel.globale.GConstantes;
+import ca.cours5b5.sebastienhamel.modeles.MParametres;
 
 public class VParametres extends Vue {
 
+    MParametres monModele = new MParametres();
 
     public VParametres(Context context) {
         super(context);
@@ -32,36 +34,39 @@ public class VParametres extends Vue {
         ArrayAdapter<Integer> adapterGagner = new ArrayAdapter<>
                 (this.getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinnerGagner.setAdapter(adapterGagner);
-        for(int i = GConstantes.GAGNERMIN; i <= GConstantes.GAGNERMAX; i++){
-
-            adapterGagner.add(i);
-
-        }
-        spinnerGagner.setSelection(GConstantes.GAGNERDEFAUT - GConstantes.GAGNERMIN);
+        adapterGagner.addAll(monModele.getChoixPourGagner());
+//        for(int i = GConstantes.GAGNERMIN; i <= GConstantes.GAGNERMAX; i++){
+//
+//            adapterGagner.add(i);
+//
+//        }
+        spinnerGagner.setSelection(monModele.pourGagner - GConstantes.GAGNERMIN);
 
         //ajout des valeur (GConstantes) dans le spinnerLargeur
         Spinner spinnerLargeur = this.findViewById(R.id.spinnerLargeur);
         ArrayAdapter<Integer> adapterLargeur = new ArrayAdapter<>
                 (this.getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinnerLargeur.setAdapter(adapterLargeur);
-        for(int i = GConstantes.LARGEURMIN; i <= GConstantes.LARGEURMAX; i++){
-
-            adapterLargeur.add(i);
-
-        }
-        spinnerLargeur.setSelection(GConstantes.LARGEURDEFAUT - GConstantes.LARGEURMIN);
+//        for(int i = GConstantes.LARGEURMIN; i <= GConstantes.LARGEURMAX; i++){
+//
+//            adapterLargeur.add(i);
+//
+//        }
+        adapterLargeur.addAll(monModele.getChoixLargeur());
+        spinnerLargeur.setSelection(monModele.largeur - GConstantes.LARGEURMIN);
 
         //ajout des valeur (GConstantes) dans le spinnerHauteur
         Spinner spinnerHauteur = this.findViewById(R.id.spinnerHauteur);
         ArrayAdapter<Integer> adapterHauteur = new ArrayAdapter<>
                 (this.getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinnerHauteur.setAdapter(adapterHauteur);
-        for(int i = GConstantes.HAUTEURMIN; i <= GConstantes.HAUTEURMAX; i++){
-
-            adapterHauteur.add(i);
-
-        }
-        spinnerHauteur.setSelection(GConstantes.HAUTEURDEFAUT - GConstantes.HAUTEURMIN);
+//        for(int i = GConstantes.HAUTEURMIN; i <= GConstantes.HAUTEURMAX; i++){
+//
+//            adapterHauteur.add(i);
+//
+//        }
+        adapterHauteur.addAll(monModele.getChoixHauteur());
+        spinnerHauteur.setSelection(monModele.hauteur - GConstantes.HAUTEURMIN);
         Log.d("Atelier04","VParametres :: onFinishInflate");
     }
 
