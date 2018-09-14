@@ -21,6 +21,18 @@ public class MParametres extends Modele {
     //FixMe
     public static MParametres instance;
 
+    public static MParametres getInstance(){
+
+        if(instance == null){
+
+            instance = new MParametres();
+
+        }
+
+        return instance;
+
+    }
+
     @AttributSerialisable
     public Integer hauteur = GConstantes.HAUTEURDEFAUT;
     private final String __hauteur = "hauteur";

@@ -14,7 +14,7 @@ import ca.cours5b5.sebastienhamel.serialisation.Jsonification;
 
 public class AParametres extends Activite {
 
-    MParametres monModele = new MParametres();
+    MParametres monModele = MParametres.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
