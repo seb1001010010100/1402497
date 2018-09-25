@@ -22,6 +22,10 @@ public class MParametres extends Modele {
     public static MParametres instance;
 
     @AttributSerialisable
+    public MParametresPartie parametresPartie;
+    private String __parametresPartie = "parametresPartie";
+
+    @AttributSerialisable
     public Integer hauteur = GConstantes.HAUTEURDEFAUT;
     private final String __hauteur = "hauteur";
 
@@ -33,20 +37,23 @@ public class MParametres extends Modele {
     public Integer pourGagner = GConstantes.GAGNERDEFAUT;
     private final String __pourGagner = "pourGagner";
 
+    private ArrayList<Integer> listeHauteur = new ArrayList<Integer>();
+    private ArrayList<Integer> listeLargeur = new ArrayList<Integer>();
+    private ArrayList<Integer> listePourGagner = new ArrayList<Integer>();
+
     public List<Integer> getChoixHauteur() {
 
-        ArrayList<Integer> listeLargeur = new ArrayList<Integer>();
         for(int i = GConstantes.HAUTEURMIN; i <= GConstantes.HAUTEURMAX; i++){
 
-            listeLargeur.add(i);
+            listeHauteur.add(i);
 
         }
-        return listeLargeur;
+        return listeHauteur;
     }
 
     public List<Integer> getChoixLargeur(){
 
-        ArrayList<Integer> listeLargeur = new ArrayList<Integer>();
+
        for(int i = GConstantes.LARGEURMIN; i <= GConstantes.LARGEURMAX; i++){
 
            listeLargeur.add(i);
@@ -57,8 +64,6 @@ public class MParametres extends Modele {
 
     public List<Integer> getChoixPourGagner(){
 
-        ArrayList<Integer> listePourGagner = new ArrayList<Integer>();
-
         for(int i = GConstantes.GAGNERMIN; i <= GConstantes.GAGNERMAX; i++){
 
             listePourGagner.add(i);
@@ -66,6 +71,11 @@ public class MParametres extends Modele {
         }
 
         return listePourGagner;
+    }
+
+
+    public MParametresPartie getMParametresPartie() {
+        return parametresPartie;
     }
 
     @Override

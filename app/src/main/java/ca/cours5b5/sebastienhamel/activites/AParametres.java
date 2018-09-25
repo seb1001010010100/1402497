@@ -126,7 +126,7 @@ public class AParametres extends Activite {
 
     private void restaurerParametres(Bundle savedInstanceState){
 
-        String json = savedInstanceState.getString("parametres");
+        String json = savedInstanceState.getString("MParametres");
         Log.d("json", json);
         Map<String, Object> objetJson = Jsonification.enOnjetJson(json);
         monModele.aPartirObjetJson(objetJson);
@@ -137,7 +137,7 @@ public class AParametres extends Activite {
 
         Map<String, Object> objetJson = monModele.enObjetJson();
         String json = Jsonification.enChaine(objetJson);
-        outState.putString("parametres", json);
+        outState.putString("MParametres", json);
 
     }
 }
