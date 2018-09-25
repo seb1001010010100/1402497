@@ -12,7 +12,7 @@ import ca.cours5b5.sebastienhamel.modeles.MParametres;
 
 public class VParametres extends Vue {
 
-    MParametres monModele = new MParametres();
+    MParametres monModele = MParametres.getInstance();
 
     public VParametres(Context context) {
         super(context);
