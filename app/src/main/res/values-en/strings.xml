@@ -6,5 +6,8 @@
     <string name="largeur">Width:</string>
     <string name="gagner">To Win:</string>
     <string name="parametres">Parameters</string>
+    <string name="jouer">Play</string>
+    <string name="joueurUn">Player 1</string>
+    <string name="joueurDeux">Player 2</string>
 
 </resources>

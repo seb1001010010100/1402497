@@ -48,7 +48,7 @@ public class AParametres extends Activite {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 int pourGagner = (int) parent.getAdapter().getItem(position);
-                monModele.pourGagner = pourGagner;
+                monModele.getMParametresPartie().setPourGagner(pourGagner);
 
             }
 
@@ -62,7 +62,7 @@ public class AParametres extends Activite {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 int hauteur = (int) parent.getAdapter().getItem(position);
-                monModele.hauteur = hauteur;
+                monModele.getMParametresPartie().setHauteur(hauteur);
 
             }
 
@@ -76,7 +76,7 @@ public class AParametres extends Activite {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 int largeur = (int) parent.getAdapter().getItem(position);
-                monModele.largeur = largeur;
+                monModele.getMParametresPartie().setLargeur(largeur);
 
             }
 

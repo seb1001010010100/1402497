@@ -31,9 +31,9 @@ public class MParametresPartie extends Modele{
     public MParametresPartie aPartirMParametres(MParametres mParametres){
 
         MParametresPartie mParametresPartie = cloner();
-        mParametresPartie.hauteur = mParametres.hauteur;
-        mParametresPartie.largeur = mParametres.largeur;
-        mParametresPartie.pourGagner = mParametres.pourGagner;
+        mParametresPartie.hauteur = mParametres.getMParametresPartie().getHauteur();
+        mParametresPartie.largeur = mParametres.getMParametresPartie().getLargeur();
+        mParametresPartie.pourGagner = mParametres.getMParametresPartie().getPourGagner();
         return mParametresPartie;
 
     }

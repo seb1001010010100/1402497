@@ -1,5 +1,8 @@
 package ca.cours5b5.sebastienhamel.controleurs;
 
+import android.util.Log;
+
+import java.util.HashMap;
 import java.util.Map;
 
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerObservateur;
@@ -15,24 +18,24 @@ public class ControlleurObservation {
 
     static {
 
+        observations = new HashMap<>();
+        partie = new MPartie(MParametres.getInstance().getMParametresPartie());
 
     }
 
     public static void observerModele(String nomModele,
                                       final ListenerObservateur listenerObservateur){
 
-        Modele modele;
-        switch(nomModele){
+        Log.d("atelier06","ControlleurObservation :: observerModele");
+        if(nomModele.equals(MParametres.class.getSimpleName())){
 
-            case "MPartie":
-                observations.put(ControlleurObservation.partie, listenerObservateur);
-                listenerObservateur.reagirNouveauModele(ControlleurObservation.partie);
-                break;
+            observations.put(MParametres.getInstance(), listenerObservateur);
+            listenerObservateur.reagirNouveauModele(MParametres.getInstance());
 
-            case "MParametres":
-                observations.put(MParametres.instance, listenerObservateur);
-                listenerObservateur.reagirNouveauModele(MParametres.instance);
-                break;
+        }else if(nomModele.equals(MPartie.class.getSimpleName())){
+
+            observations.put(ControlleurObservation.partie, listenerObservateur);
+            listenerObservateur.reagirNouveauModele(ControlleurObservation.partie);
 
         }
 

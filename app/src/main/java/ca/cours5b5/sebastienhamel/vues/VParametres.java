@@ -35,7 +35,7 @@ public class VParametres extends Vue {
                 (this.getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinnerGagner.setAdapter(adapterGagner);
         adapterGagner.addAll(monModele.getChoixPourGagner());
-        spinnerGagner.setSelection(monModele.pourGagner - GConstantes.GAGNERMIN);
+        spinnerGagner.setSelection(monModele.getMParametresPartie().getPourGagner() - GConstantes.GAGNERMIN);
 
         //ajout des valeur (GConstantes) dans le spinnerLargeur
         Spinner spinnerLargeur = this.findViewById(R.id.spinnerLargeur);
@@ -44,7 +44,7 @@ public class VParametres extends Vue {
         spinnerLargeur.setAdapter(adapterLargeur);
 
         adapterLargeur.addAll(monModele.getChoixLargeur());
-        spinnerLargeur.setSelection(monModele.largeur - GConstantes.LARGEURMIN);
+        spinnerLargeur.setSelection(monModele.getMParametresPartie().getLargeur() - GConstantes.LARGEURMIN);
 
         //ajout des valeur (GConstantes) dans le spinnerHauteur
         Spinner spinnerHauteur = this.findViewById(R.id.spinnerHauteur);
@@ -52,7 +52,7 @@ public class VParametres extends Vue {
                 (this.getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinnerHauteur.setAdapter(adapterHauteur);
         adapterHauteur.addAll(monModele.getChoixHauteur());
-        spinnerHauteur.setSelection(monModele.hauteur - GConstantes.HAUTEURMIN);
+        spinnerHauteur.setSelection(monModele.getMParametresPartie().getHauteur() - GConstantes.HAUTEURMIN);
         Log.d("Atelier04","VParametres :: onFinishInflate");
     }
 

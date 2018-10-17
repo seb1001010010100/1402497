@@ -1,5 +1,7 @@
 package ca.cours5b5.sebastienhamel.modeles;
 
+import android.util.Log;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class MParametres extends Modele {
 
     }
 
+
+
     //FixMe
     public static MParametres instance;
 
@@ -33,82 +37,84 @@ public class MParametres extends Modele {
 
     }
 
+    public MParametres(){
+
+        genererListesDeChoix();
+
+    }
+
     @AttributSerialisable
     public MParametresPartie parametresPartie;
     private String __parametresPartie = "parametresPartie";
 
-    @AttributSerialisable
-    public Integer hauteur = GConstantes.HAUTEURDEFAUT;
-    private final String __hauteur = "hauteur";
 
-    @AttributSerialisable
-    public Integer largeur = GConstantes.LARGEURDEFAUT;
-    private final String __largeur = "largeur";
-
-    @AttributSerialisable
-    public Integer pourGagner = GConstantes.GAGNERDEFAUT;
-    private final String __pourGagner = "pourGagner";
-
-    private ArrayList<Integer> listeHauteur = new ArrayList<Integer>();
-    private ArrayList<Integer> listeLargeur = new ArrayList<Integer>();
-    private ArrayList<Integer> listePourGagner = new ArrayList<Integer>();
+    private List<Integer> listeHauteur;
+    private List<Integer> listeLargeur;
+    private List<Integer> listePourGagner;
 
     public List<Integer> getChoixHauteur() {
 
-        for(int i = GConstantes.HAUTEURMIN; i <= GConstantes.HAUTEURMAX; i++){
 
-            listeHauteur.add(i);
-
-        }
         return listeHauteur;
     }
 
     public List<Integer> getChoixLargeur(){
 
-
-       for(int i = GConstantes.LARGEURMIN; i <= GConstantes.LARGEURMAX; i++){
-
-           listeLargeur.add(i);
-
-       }
         return listeLargeur;
     }
 
     public List<Integer> getChoixPourGagner(){
-
-        for(int i = GConstantes.GAGNERMIN; i <= GConstantes.GAGNERMAX; i++){
-
-            listePourGagner.add(i);
-
-        }
 
         return listePourGagner;
     }
 
 
     public MParametresPartie getMParametresPartie() {
+
+        if(parametresPartie == null){
+
+            parametresPartie = new MParametresPartie(GConstantes.HAUTEURDEFAUT,GConstantes.LARGEURDEFAUT,GConstantes.GAGNERDEFAUT);
+
+        }
+
         return parametresPartie;
+    }
+    private void genererListesDeChoix(){
+        genererListeChoixHauteur();
+        genererListeChoixLargeur();
+        genererListeChoixPourGagner();
+    }
+    private List<Integer> genererListeChoix(int min, int max){
+        List<Integer> listeChoix = new ArrayList<>();
+
+        for(int i = min; i <= max; i++){
+            listeChoix.add(i);
+        }
+
+        return listeChoix;
+    }
+
+    private void genererListeChoixHauteur(){
+        listeHauteur = genererListeChoix(GConstantes.HAUTEURMIN, GConstantes.HAUTEURMAX);
+    }
+
+    private void genererListeChoixLargeur(){
+        listeLargeur = genererListeChoix(GConstantes.LARGEURMIN, GConstantes.LARGEURMAX);
+    }
+
+    private void genererListeChoixPourGagner(){
+        listePourGagner = genererListeChoix(GConstantes.GAGNERMIN, GConstantes.GAGNERMAX);
     }
 
     @Override
     public void aPartirObjetJson(Map<String, Object> objetJson) {
         for(Map.Entry<String, Object> entry : objetJson.entrySet()) {
 
-            String cle = entry.getKey();
-            Object valeur = entry.getValue();
-            switch(cle){
+            if (entry.getKey().equals(__parametresPartie)) {
 
-                case "hauteur":
-                    hauteur = Integer.valueOf((String)valeur);
-                    break;
-                case "largeur":
-                    largeur = Integer.valueOf((String)valeur);
-                    break;
-                case "pourGagner":
-                    pourGagner = Integer.valueOf((String)valeur);
-                    break;
+                this.parametresPartie.aPartirObjetJson((Map<String, Object>) entry.getValue());
+
             }
-
 
         }
     }
@@ -116,9 +122,8 @@ public class MParametres extends Modele {
     @Override
     public Map<String, Object> enObjetJson() {
         Map<String, Object> objetJson = new HashMap<>();
-        objetJson.put(__hauteur, hauteur.toString());
-        objetJson.put(__largeur, largeur.toString());
-        objetJson.put(__pourGagner, pourGagner.toString());
+
+        objetJson.put(__parametresPartie, this.getMParametresPartie().enObjetJson());
 
         return objetJson;
     }

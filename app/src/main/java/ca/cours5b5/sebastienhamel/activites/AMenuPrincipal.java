@@ -17,12 +17,23 @@ public class AMenuPrincipal extends Activite {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         Button boutonParametres = this.findViewById(R.id.bouton_parametres);
+        Button boutonJouer = this.findViewById(R.id.bouton_jouer);
         boutonParametres.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
 
                 startActivity(new Intent(AMenuPrincipal.this, AParametres.class));
+
+            }
+
+        });
+        boutonJouer.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(AMenuPrincipal.this, APartie.class));
 
             }
 

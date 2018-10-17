@@ -13,5 +13,4 @@ public class GConstantes {
     public static final int GAGNERDEFAUT = 4;
 
 
-
 }
