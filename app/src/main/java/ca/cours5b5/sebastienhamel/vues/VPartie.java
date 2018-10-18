@@ -5,8 +5,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import ca.cours5b5.sebastienhamel.R;
+import ca.cours5b5.sebastienhamel.controleurs.Action;
+import ca.cours5b5.sebastienhamel.controleurs.ControlleurAction;
 import ca.cours5b5.sebastienhamel.controleurs.ControlleurObservation;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerObservateur;
+import ca.cours5b5.sebastienhamel.globale.GCommande;
 import ca.cours5b5.sebastienhamel.modeles.MPartie;
 import ca.cours5b5.sebastienhamel.modeles.Modele;
 
@@ -43,6 +46,7 @@ public class VPartie extends Vue {
             public void reagirChangementAuModele(Modele modele) {
                 Log.d("Atelier 7", "VPartie.reagirChangementAuModele");
                 initialiserGrille((MPartie) modele);
+                miseAJourGrille((MPartie) modele);;
                 Log.d("atelier06","VPartie$1 :: reagirChangementAuModele");
             }
         });
@@ -62,7 +66,7 @@ public class VPartie extends Vue {
 
     private void miseAJourGrille(MPartie partie){
 
-        Fix Me
+        grille.afficherJetons(partie.getGrille());
 
     }
 }

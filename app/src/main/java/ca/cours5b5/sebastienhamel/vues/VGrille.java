@@ -14,6 +14,7 @@ import ca.cours5b5.sebastienhamel.controleurs.Action;
 import ca.cours5b5.sebastienhamel.controleurs.ControlleurAction;
 import ca.cours5b5.sebastienhamel.globale.GCommande;
 import ca.cours5b5.sebastienhamel.globale.GCouleur;
+import ca.cours5b5.sebastienhamel.modeles.MColonne;
 import ca.cours5b5.sebastienhamel.modeles.MGrille;
 
 
@@ -32,7 +33,7 @@ public class VGrille extends GridLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    private int nombreRangees;
+
     private List<VEntete> entetes;
     private VCase[][] lesCases;
 
@@ -46,6 +47,7 @@ public class VGrille extends GridLayout {
         initialiserTableauDeCases(hauteur, largeur);
         ajouterCases(hauteur, largeur);
         ajouterEnTetes(largeur);
+
     }
 
     private void initialiserTableauDeCases(int hauteur, int largeur){
@@ -53,7 +55,7 @@ public class VGrille extends GridLayout {
         lesCases = new VCase[hauteur][largeur];
 
     }
-    FIX CHANGER VOID
+    //FIX CHANGER VOID
     private Action demanderActionEntete(){
 
         return ControlleurAction.demanderAction(GCommande.JOUER_COUP_ICI);
@@ -79,13 +81,20 @@ public class VGrille extends GridLayout {
 
     void afficherJetons(MGrille grille){
 
-        Fix me
+        for(int colonne = 0; colonne < grille.getColonnes().size(); colonne++){
 
+            for(int jeton = 0; jeton < grille.getColonnes().get(colonne).getJetons().size(); jeton++){
+
+                afficherJeton(jeton, colonne, grille.getColonnes().get(colonne).getJetons().get(jeton));
+
+            }
+
+        }
     }
 
     private void afficherJeton(int colonne, int rangee, GCouleur jeton){
 
-        Fix me
+        lesCases[colonne][rangee].afficherJeton(jeton);
 
     }
 
@@ -96,7 +105,7 @@ public class VGrille extends GridLayout {
         for(int i = 0; i < largeur; i++){
 
             VEntete entete = new VEntete(this.getContext(), i);
-
+            installerListenerEntete(entete, i);
             entetes.add(entete);
             this.addView(entete, this.getMiseEnPageEntete(i));
 

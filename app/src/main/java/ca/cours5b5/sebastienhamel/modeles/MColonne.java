@@ -1,5 +1,6 @@
 package ca.cours5b5.sebastienhamel.modeles;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +10,7 @@ public class MColonne extends Modele {
 
     private List<GCouleur> jetons;
     public MColonne(){
-        FIX ME
-        //this.jetons = jetons;
-
+        jetons = new ArrayList<>();
     }
 
     public List<GCouleur> getJetons() {
@@ -25,7 +24,6 @@ public class MColonne extends Modele {
     public void placerJeton(GCouleur couleur){
 
         this.jetons.add(couleur);
-        FIX ME
 
     }
 

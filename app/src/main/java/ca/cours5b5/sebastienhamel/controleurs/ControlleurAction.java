@@ -2,7 +2,9 @@ package ca.cours5b5.sebastienhamel.controleurs;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,7 @@ public class ControlleurAction {
             actions.put(commande, new Action());
 
         }
+        fileAttenteExecution = new ArrayList<>();
 
     }
 
@@ -45,7 +48,7 @@ public class ControlleurAction {
     static void executerDesQuePossible(Action action){
 
         Log.d("Atelier 7", "ControllerAction.executerDesQuePossible");
-        fileAttenteExecution.add(action);
+        ajouterActionEnFileDAttente(action);
         executerActionsExecutables();
 
     }
@@ -57,12 +60,11 @@ public class ControlleurAction {
 
             if(siActionExecutable(action)){
 
-                if(fileAttenteExecution.remove(action)){
+                fileAttenteExecution.remove(action);
+                executerMaintenant(action);
+                lancerObservationSiPossible(action);
 
-                    executerMaintenant(action);
-                    lancerObservationSiPossible(action);
 
-                }
 
             }
 

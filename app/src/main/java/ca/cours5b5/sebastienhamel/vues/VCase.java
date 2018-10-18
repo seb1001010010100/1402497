@@ -35,7 +35,17 @@ public class VCase extends AppCompatButton{
 
     public void afficherJeton(GCouleur jeton){
 
-        this.setBackgroundColor(Color.parseColor("#000000"));
+        switch(jeton){
+
+            case JAUNE:
+                this.setBackgroundColor(Color.parseColor("#ffff00"));
+                break;
+
+            case ROUGE:
+                this.setBackgroundColor(Color.parseColor("#ff0000"));
+                break;
+        }
+
 
     }
 }

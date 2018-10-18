@@ -23,7 +23,7 @@ public class VEntete extends AppCompatButton {
     public VEntete(Context context, int colonne){
         super(context);
         this.colonne = colonne;
-        this.setText(colonne+"\n"+'\u2B07');
+        this.setText(colonne+"\n"+"\u2B07"+"\n"+"\u2B07");
 
     }
 }

@@ -10,6 +10,9 @@ import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.sebastienhamel.globale.GCommande;
 import ca.cours5b5.sebastienhamel.globale.GCouleur;
 
+import static ca.cours5b5.sebastienhamel.globale.GCouleur.JAUNE;
+import static ca.cours5b5.sebastienhamel.globale.GCouleur.ROUGE;
+
 public class MPartie extends Modele implements Fournisseur{
 
     public @Retention(RetentionPolicy.RUNTIME) @interface AttributSerialisable{
@@ -27,8 +30,12 @@ public class MPartie extends Modele implements Fournisseur{
     public MPartie(MParametresPartie parametres){
 
         this.parametres = parametres;
-
+        this.grille = new MGrille(parametres.getLargeur());
+        initialiserCouleurCourante();
+        fournirActionPlacerJeton();
     }
+
+
 
     public MParametresPartie getParametres() {
         return parametres;
@@ -42,18 +49,25 @@ public class MPartie extends Modele implements Fournisseur{
 
         if(couleurCourante == null){
 
-            
+            couleurCourante = JAUNE;
+
+        }else{
+
+            prochaineCouleurCourante();
 
         }
 
     }
+
 
     private void fournirActionPlacerJeton(){
 
         ControlleurAction.fournirAction(this, GCommande.JOUER_COUP_ICI, new ListenerFournisseur() {
             @Override
             public void executer(Object... args) {
-                args[0] = couleurCourante;
+                int colonne = ((int) args[0]);
+                jouerCoup(colonne);
+                prochaineCouleurCourante();
             }
         });
 
@@ -67,7 +81,17 @@ public class MPartie extends Modele implements Fournisseur{
 
     private void prochaineCouleurCourante(){
 
-        Fix me
+        switch(couleurCourante){
+
+            case ROUGE:
+                couleurCourante = JAUNE;
+                break;
+
+            case JAUNE:
+                couleurCourante = ROUGE;
+                break;
+
+        }
 
     }
 
