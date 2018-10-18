@@ -23,6 +23,17 @@ public class ControlleurObservation {
 
     }
 
+    public static void lancerObservation(Modele modele){
+
+        Log.d("Atelier 7", "ControllerObservation.lancerObservation");
+        ListenerObservateur listener = observations.get(modele);
+        if(listener != null){
+
+            listener.reagirNouveauModele(modele);
+        }
+
+    }
+
     public static void observerModele(String nomModele,
                                       final ListenerObservateur listenerObservateur){
 

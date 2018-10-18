@@ -41,6 +41,7 @@ public class VPartie extends Vue {
         ControlleurObservation.observerModele(MPartie.class.getSimpleName(), new ListenerObservateur() {
             @Override
             public void reagirChangementAuModele(Modele modele) {
+                Log.d("Atelier 7", "VPartie.reagirChangementAuModele");
                 initialiserGrille((MPartie) modele);
                 Log.d("atelier06","VPartie$1 :: reagirChangementAuModele");
             }
@@ -56,6 +57,12 @@ public class VPartie extends Vue {
 
         this.grille.creerGrille(partie.getParametres().getHauteur(),partie.getParametres().getLargeur());
 
+
+    }
+
+    private void miseAJourGrille(MPartie partie){
+
+        Fix Me
 
     }
 }

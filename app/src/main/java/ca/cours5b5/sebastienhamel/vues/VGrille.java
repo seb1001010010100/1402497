@@ -4,10 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ca.cours5b5.sebastienhamel.controleurs.Action;
+import ca.cours5b5.sebastienhamel.controleurs.ControlleurAction;
+import ca.cours5b5.sebastienhamel.globale.GCommande;
+import ca.cours5b5.sebastienhamel.globale.GCouleur;
+import ca.cours5b5.sebastienhamel.modeles.MGrille;
 
 
 public class VGrille extends GridLayout {
@@ -46,6 +53,42 @@ public class VGrille extends GridLayout {
         lesCases = new VCase[hauteur][largeur];
 
     }
+    FIX CHANGER VOID
+    private Action demanderActionEntete(){
+
+        return ControlleurAction.demanderAction(GCommande.JOUER_COUP_ICI);
+
+
+    }
+
+    private void installerListenerEntete(VEntete entete, final int colonne){
+
+        entete.setOnClickListener(new OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Log.d("Atelier 7", "VGrille$1.onClick");
+                Action action = demanderActionEntete();
+                action.setArgs(colonne);
+                action.executerDesQuePossible();
+
+            }
+        });
+
+    }
+
+    void afficherJetons(MGrille grille){
+
+        Fix me
+
+    }
+
+    private void afficherJeton(int colonne, int rangee, GCouleur jeton){
+
+        Fix me
+
+    }
+
 
     private void ajouterEnTetes(int largeur){
 

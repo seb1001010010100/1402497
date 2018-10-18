@@ -1,10 +1,13 @@
 package ca.cours5b5.sebastienhamel.vues;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 import java.text.MessageFormat;
+
+import ca.cours5b5.sebastienhamel.globale.GCouleur;
 
 public class VCase extends AppCompatButton{
 
@@ -27,6 +30,12 @@ public class VCase extends AppCompatButton{
         this.rangee = rangee;
         this.colonne = colonne;
         this.setText(MessageFormat.format("{0}, {1}", rangee, colonne));
+
+    }
+
+    public void afficherJeton(GCouleur jeton){
+
+        this.setBackgroundColor(Color.parseColor("#000000"));
 
     }
 }
