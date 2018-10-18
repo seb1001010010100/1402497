@@ -14,10 +14,10 @@ public class ControlleurObservation {
 
     private static Map<Modele, ListenerObservateur> observations;
 
-    private static MPartie partie;
+    public static MPartie partie;
 
     static {
-
+        partie = new MPartie(MParametres.getInstance().getMParametresPartie());
         observations = new HashMap<>();
 
 
@@ -44,7 +44,7 @@ public class ControlleurObservation {
             listenerObservateur.reagirNouveauModele(MParametres.getInstance());
 
         }else if(nomModele.equals(MPartie.class.getSimpleName())){
-            partie = new MPartie(MParametres.getInstance().getMParametresPartie());
+
             observations.put(ControlleurObservation.partie, listenerObservateur);
             listenerObservateur.reagirNouveauModele(ControlleurObservation.partie);
 
