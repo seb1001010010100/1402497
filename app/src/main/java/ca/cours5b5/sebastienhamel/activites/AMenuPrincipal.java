@@ -2,76 +2,71 @@ package ca.cours5b5.sebastienhamel.activites;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import ca.cours5b5.sebastienhamel.R;
+import ca.cours5b5.sebastienhamel.controleurs.ControleurAction;
+import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerFournisseur;
+import ca.cours5b5.sebastienhamel.global.GCommande;
 
-public class AMenuPrincipal extends Activite {
-
+public class AMenuPrincipal extends Activite implements Fournisseur {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        Button boutonParametres = this.findViewById(R.id.bouton_parametres);
-        Button boutonJouer = this.findViewById(R.id.bouton_jouer);
-        boutonParametres.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(AMenuPrincipal.this, AParametres.class));
-
-            }
-
-        });
-        boutonJouer.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(AMenuPrincipal.this, APartie.class));
-
-            }
-
-        });
-        Log.d("Atelier04","AMenuPrincipal :: onCreate");
+        fournirActions();
 
     }
 
-    static{
+    private void fournirActions() {
 
-        Log.d("Atelier04","AMenuPrincipal :: static");
+        fournirActionOuvrirMenuParametres();
+
+        fournirActionDemarrerPartie();
+    }
+
+    private void fournirActionOuvrirMenuParametres() {
+
+        ControleurAction.fournirAction(this,
+                GCommande.OUVRIR_MENU_PARAMETRES,
+                new ListenerFournisseur() {
+                    @Override
+                    public void executer(Object... args) {
+
+                        transitionParametres();
+
+                    }
+                });
+    }
+
+    private void fournirActionDemarrerPartie() {
+
+        ControleurAction.fournirAction(this,
+                GCommande.DEMARRER_PARTIE,
+                new ListenerFournisseur() {
+                    @Override
+                    public void executer(Object... args) {
+
+                        transitionPartie();
+
+                    }
+                });
+    }
+
+    private void transitionParametres(){
+
+        Intent intentionParametres = new Intent(this, AParametres.class);
+        startActivity(intentionParametres);
 
     }
 
-    protected void onResume() {
+    private void transitionPartie(){
 
-
-        super.onResume();
-        Log.d("Atelier04","AMenuPrincipal :: onResume");
-    }
-
-    protected void onPause() {
-
-
-        super.onPause();
-        Log.d("Atelier04","AMenuPrincipal :: onPause");
+        Intent intentionParametres = new Intent(this, APartie.class);
+        startActivity(intentionParametres);
 
     }
 
-    protected void onSaveInstanceState(Bundle outState){
-
-        super.onSaveInstanceState(outState);
-        Log.d("Atelier04","AMenuPrincipal :: onSaveInstanceState");
-
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("Atelier04","AMenuPrincipal :: onDestroy");
-    }
 }

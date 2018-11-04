@@ -1,51 +1,66 @@
 package ca.cours5b5.sebastienhamel.vues;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
-import java.text.MessageFormat;
+import ca.cours5b5.sebastienhamel.R;
+import ca.cours5b5.sebastienhamel.global.GCouleur;
 
-import ca.cours5b5.sebastienhamel.globale.GCouleur;
 
-public class VCase extends AppCompatButton{
+public class VCase extends AppCompatButton {
 
     public VCase(Context context) {
         super(context);
+        initialiser();
     }
 
     public VCase(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initialiser();
     }
 
     public VCase(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initialiser();
     }
 
-    private int rangee, colonne;
 
-    public VCase(Context context, int rangee, int colonne){
+    public VCase(Context context, int rangee, int colonne) {
         super(context);
-        this.rangee = rangee;
-        this.colonne = colonne;
-        this.setText(MessageFormat.format("{0}, {1}", rangee, colonne));
+
+        setText(""+rangee+","+colonne);
+
+        initialiser();
 
     }
 
-    public void afficherJeton(GCouleur jeton){
+    private void initialiser() {
 
-        switch(jeton){
+        changerCouleurDeFond(R.color.VIDE);
 
-            case JAUNE:
-                this.setBackgroundColor(Color.parseColor("#ffff00"));
-                break;
+    }
+
+    private void changerCouleurDeFond(int idCouleur) {
+
+        setBackgroundColor(getResources().getColor(idCouleur, null));
+
+    }
+
+    public void afficherJeton(GCouleur jeton) {
+
+        switch (jeton){
 
             case ROUGE:
-                this.setBackgroundColor(Color.parseColor("#ff0000"));
+
+                changerCouleurDeFond(R.color.ROUGE);
+                break;
+
+            case JAUNE:
+
+                changerCouleurDeFond(R.color.JAUNE);
                 break;
         }
-
-
     }
+
 }

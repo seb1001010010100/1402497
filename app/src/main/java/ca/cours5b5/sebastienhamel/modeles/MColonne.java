@@ -4,36 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import ca.cours5b5.sebastienhamel.globale.GCouleur;
+import ca.cours5b5.sebastienhamel.exceptions.ErreurSerialisation;
+import ca.cours5b5.sebastienhamel.global.GCouleur;
 
 public class MColonne extends Modele {
 
     private List<GCouleur> jetons;
+
     public MColonne(){
+
         jetons = new ArrayList<>();
+
     }
 
     public List<GCouleur> getJetons() {
         return jetons;
     }
 
-    public void setJetons(List<GCouleur> jetons) {
-        this.jetons = jetons;
-    }
+    public void placerJeton(GCouleur couleur) {
 
-    public void placerJeton(GCouleur couleur){
-
-        this.jetons.add(couleur);
+        jetons.add(couleur);
 
     }
 
     @Override
-    public void aPartirObjetJson(Map<String, Object> objetJson) {
+    public void aPartirObjetJson(Map<String, Object> objetJson) throws ErreurSerialisation {
+
+        throw new UnsupportedOperationException();
 
     }
 
     @Override
-    public Map<String, Object> enObjetJson() {
-        return null;
+    public Map<String, Object> enObjetJson() throws ErreurSerialisation {
+
+        throw new UnsupportedOperationException();
+
     }
+
+    public int nombreDeJetons() {
+        return jetons.size();
+    }
+
 }

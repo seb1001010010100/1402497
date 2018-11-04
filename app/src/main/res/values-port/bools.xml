@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <bool name="est_portrait">true</bool>
+    <bool name="si_portrait">true</bool>
 
 </resources>

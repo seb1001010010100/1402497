@@ -1,7 +1,8 @@
-package ca.cours5b5.sebastienhamel.globale;
+package ca.cours5b5.sebastienhamel.global;
 
 public enum GCouleur {
 
     ROUGE,
     JAUNE
+
 }

@@ -1,57 +1,38 @@
 package ca.cours5b5.sebastienhamel.activites;
 
-import android.os.Bundle;
-import android.util.Log;
 
-import java.util.Map;
+import android.os.Bundle;
 
 import ca.cours5b5.sebastienhamel.R;
-import ca.cours5b5.sebastienhamel.controleurs.ControlleurAction;
-import ca.cours5b5.sebastienhamel.controleurs.ControlleurObservation;
+import ca.cours5b5.sebastienhamel.controleurs.ControleurModeles;
+import ca.cours5b5.sebastienhamel.donnees.SauvegardeTemporaire;
+import ca.cours5b5.sebastienhamel.modeles.MParametres;
 import ca.cours5b5.sebastienhamel.modeles.MPartie;
-import ca.cours5b5.sebastienhamel.serialisation.Jsonification;
 
 public class APartie extends Activite {
 
-    MPartie monModele = ControlleurObservation.partie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apartie);
 
-        if(savedInstanceState != null){
+        setContentView(R.layout.activity_partie);
 
-            restaurerParametres(savedInstanceState);
-
-        }
     }
-    protected void onSaveInstanceState(Bundle outState){
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ControleurModeles.sauvegarderModele(MPartie.class.getSimpleName());
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        sauvegarderParametres(outState);
-
-
-    }
-
-    private void restaurerParametres(Bundle savedInstanceState){
-
-        String json = savedInstanceState.getString("MPartie");
-        Log.d("Json Atelier 7", json);
-        Map<String, Object> objetJson = Jsonification.enOnjetJson(json);
-        monModele.aPartirObjetJson(objetJson);
+        ControleurModeles.sauvegarderModeleDansCetteSource(MPartie.class.getSimpleName(),
+                new SauvegardeTemporaire(outState));
 
     }
-
-    private void sauvegarderParametres(Bundle outState){
-
-        Map<String, Object> objetJson = monModele.enObjetJson();
-        String json = Jsonification.enChaine(objetJson);
-        Log.d("Json Atelier 7", json);
-        outState.putString("MPartie", json);
-        
-    }
-
 }
