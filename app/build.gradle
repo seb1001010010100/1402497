@@ -1,15 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'key0'
+            keyPassword 'password'
+            storeFile file('C:/Users/sebas/Dropbox/Workstation/Application Mobile/debug.jks')
+            storePassword 'password'
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
-        applicationId "ca.cours5b5.prenomnom"
+        applicationId "ca.cours5b5.sebastienhamel"
         minSdkVersion 26
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
 
 
     }
@@ -18,11 +25,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
-
 }
 
 dependencies {
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    implementation 'com.firebaseui:firebase-ui-auth:3.3.1'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -31,3 +42,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+apply plugin: 'com.google.gms.google-services'
