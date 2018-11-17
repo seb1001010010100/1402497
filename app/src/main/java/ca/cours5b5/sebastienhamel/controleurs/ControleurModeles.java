@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.sebastienhamel.donnees.Serveur;
 import ca.cours5b5.sebastienhamel.donnees.SourceDeDonnees;
 import ca.cours5b5.sebastienhamel.exceptions.ErreurModele;
 import ca.cours5b5.sebastienhamel.modeles.MParametres;
@@ -13,6 +14,7 @@ import ca.cours5b5.sebastienhamel.modeles.MParametresPartie;
 import ca.cours5b5.sebastienhamel.modeles.MPartie;
 import ca.cours5b5.sebastienhamel.modeles.Modele;
 import ca.cours5b5.sebastienhamel.donnees.Disque;
+import ca.cours5b5.sebastienhamel.usagers.UsagerCourant;
 
 public final class ControleurModeles {
 
@@ -30,6 +32,7 @@ public final class ControleurModeles {
 
         listeDeSauvegardes = new ArrayList<>();
         listeDeSauvegardes.add(Disque.getInstance());
+        listeDeSauvegardes.add(Serveur.getInstance());
 
     }
 
@@ -47,7 +50,7 @@ public final class ControleurModeles {
 
             Map<String, Object> objetJson = modele.enObjetJson();
 
-            sourceDeDonnees.sauvegarderModele(nomModele, objetJson);
+            sourceDeDonnees.sauvegarderModele(getCheminSauvegarde(nomModele), objetJson);
 
         }
     }
@@ -74,7 +77,7 @@ public final class ControleurModeles {
 
         for(SourceDeDonnees sourceDeDonnees : sequenceDeChargement){
 
-            Map<String, Object> objetJson = sourceDeDonnees.chargerModele(nomModele);
+            Map<String, Object> objetJson = sourceDeDonnees.chargerModele(getCheminSauvegarde(nomModele));
 
             if(objetJson != null){
 
@@ -134,6 +137,12 @@ public final class ControleurModeles {
 
             }
         }
+    }
+
+    private static String getCheminSauvegarde(String nomModele){
+
+            return nomModele + "/" + UsagerCourant.getId();
+
     }
 
 }
