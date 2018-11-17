@@ -22,7 +22,6 @@ import ca.cours5b5.sebastienhamel.global.GConstantes;
 
 public class AMenuPrincipal extends Activite implements Fournisseur {
 
-    private static boolean connected = false;
     private Button buttonConnection;
 
     @Override
@@ -43,6 +42,8 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
         fournirActionConnexion();
 
         fournirActionDeconnexion();
+
+        fournirActionJoindreOuCreerPartieReseau();
     }
 
     private void fournirActionConnexion() {
@@ -103,6 +104,21 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
                 });
     }
 
+    private void fournirActionJoindreOuCreerPartieReseau(){
+
+        ControleurAction.fournirAction(this,
+                GCommande.JOINDRE_OU_CREER_PARTIE_RESEAU,
+                new ListenerFournisseur() {
+                    @Override
+                    public void executer(Object... args) {
+
+                        transitionPartieReseau();
+
+                    }
+                });
+
+    }
+
     private void transitionParametres(){
 
         Intent intentionParametres = new Intent(this, AParametres.class);
@@ -114,6 +130,14 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
         Intent intentionParametres = new Intent(this, APartie.class);
         startActivity(intentionParametres);
+
+    }
+
+    private void transitionPartieReseau(){
+
+        Intent intentionReseau = new Intent(this, APartieReseau.class);
+        intentionReseau.putExtra("FIXME_JSON_PARTIE_RESEAU",GConstantes.FIXME_JSON_PARTIE_RESEAU);
+        startActivity(intentionReseau);
 
     }
 
@@ -137,8 +161,7 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
             public void onComplete(@NonNull Task<Void> task){
 
-                connected = false;
-                buttonConnection.setText("@string/connexion");
+                buttonConnection.setText("connexion");
 
             }
         });
@@ -151,24 +174,19 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
             if(resultCode == RESULT_OK){
 
-                connected = true;
 
-                buttonConnection.setText("@string/deconnexion");
+
+                buttonConnection.setText("deconnexion");
                 Log.d("Connection", "connected");
 
             }else{
 
-                connected = false;
+
 
             }
 
         }
     }
 
-    public static boolean isConnected(){
-
-        return connected;
-
-    }
 
 }

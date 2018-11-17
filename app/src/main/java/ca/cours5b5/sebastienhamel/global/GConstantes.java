@@ -19,5 +19,12 @@ public final class GConstantes {
 
     public static final int CODE_CONNEXION = 123;
 
+    public static final int NOMBRE_DE_VALEURS_A_CHANGER_DU_SERVEUR_PAR_DEFAUT = 10;
+    public static final String CLE_ID_JOUEUR_HOTE = "idJoueurHote",
+                            CLE_ID_JOUEUR_INVITE = "idJoueurInvite",
+                            CLE_COUPS_JOUEUR_HOTE = "coupsJoueurHote",
+                            CLE_COUPS_JOUEUR_INVITE = "coupsJoueurInvite",
+                            //TODO: ramplacer les ids
+                            FIXME_JSON_PARTIE_RESEAU = "{\"listeCoups\":[],\"parametres\":{\"largeur\":\"7\",\"pourGagner\":\"4\",\"hauteur\":\"6\"},\"idJoueurInvite\":\"PHMRKe3q7zOhfQQOwemjtfBFNp12\",\"idJoueurHote\":\"T1m8GxiBAlhLUcF6Ne0GV06nnEg1\"}";
 
 }

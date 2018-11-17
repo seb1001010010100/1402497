@@ -10,6 +10,7 @@ import ca.cours5b5.sebastienhamel.activites.AMenuPrincipal;
 import ca.cours5b5.sebastienhamel.controleurs.Action;
 import ca.cours5b5.sebastienhamel.controleurs.ControleurAction;
 import ca.cours5b5.sebastienhamel.global.GCommande;
+import ca.cours5b5.sebastienhamel.usagers.UsagerCourant;
 
 
 public class VMenuPrincipal extends Vue {
@@ -45,6 +46,12 @@ public class VMenuPrincipal extends Vue {
         demanderActions();
 
         installerListeners();
+
+        if(UsagerCourant.siUsagerConnecte()){
+
+            boutonConnexion.setText("deconnexion");
+
+        }
 
     }
 
@@ -109,7 +116,7 @@ public class VMenuPrincipal extends Vue {
         boutonConnexion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(AMenuPrincipal.isConnected()){
+                if(UsagerCourant.siUsagerConnecte()){
 
                     actionDeconnexion.executerDesQuePossible();
                 }else{

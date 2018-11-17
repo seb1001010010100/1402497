@@ -45,9 +45,15 @@ public class VPartie extends Vue {
 
     }
 
+    protected String getNomModele(){
+
+        return MPartie.class.getSimpleName();
+
+    }
+
     private void observerPartie() {
 
-        ControleurObservation.observerModele(MPartie.class.getSimpleName(),
+        ControleurObservation.observerModele(getNomModele(),
                 new ListenerObservateur() {
                     @Override
                     public void reagirNouveauModele(Modele modele) {
