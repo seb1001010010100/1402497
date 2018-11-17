@@ -15,7 +15,7 @@ public class SauvegardeTemporaire extends SourceDeDonnees {
         this.bundle = bundle;
     }
 
-    @Override
+
     public Map<String, Object> chargerModele(String cheminSauvegarde) {
 
         if(bundle != null && bundle.containsKey(getCle(cheminSauvegarde))){
@@ -29,6 +29,25 @@ public class SauvegardeTemporaire extends SourceDeDonnees {
         }else{
 
             return null;
+
+        }
+    }
+
+    @Override
+    public void chargerModele(String cheminSauvegarde, ListenerChargement listenerChargement) {
+
+        if(bundle != null && bundle.containsKey(getCle(cheminSauvegarde))){
+
+            String json = bundle.getString(getCle(cheminSauvegarde));
+
+            Map<String, Object> objetJson = Jsonification.aPartirChaineJson(json);
+
+            listenerChargement.reagirSucces(objetJson);
+
+
+        }else{
+
+            listenerChargement.reagirErreur(new RuntimeException());
 
         }
     }

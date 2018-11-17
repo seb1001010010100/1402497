@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerGetModele;
 import ca.cours5b5.sebastienhamel.donnees.Serveur;
 import ca.cours5b5.sebastienhamel.donnees.SourceDeDonnees;
 import ca.cours5b5.sebastienhamel.exceptions.ErreurModele;
@@ -55,7 +56,7 @@ public final class ControleurModeles {
         }
     }
 
-    static Modele getModele(final String nomModele){
+    static void getModele(String nomModele, final ListenerGetModele listenerGetModele){
 
         Modele modele = modelesEnMemoire.get(nomModele);
 
@@ -65,7 +66,7 @@ public final class ControleurModeles {
 
         }
 
-        return modele;
+        listenerGetModele.reagirAuModele(modele);
     }
 
 
@@ -102,11 +103,11 @@ public final class ControleurModeles {
     }
 
 
-    private static Modele creerModeleSelonNom(String nomModele) throws ErreurModele {
+    private static void creerModeleSelonNom(String nomModele, final ListenerGetModele listenerGetModele) throws ErreurModele {
 
         if(nomModele.equals(MParametres.class.getSimpleName())){
 
-            return new MParametres();
+            listenerGetModele.reagirAuModele(new MParametres());
 
         }else if(nomModele.equals(MPartie.class.getSimpleName())){
 
