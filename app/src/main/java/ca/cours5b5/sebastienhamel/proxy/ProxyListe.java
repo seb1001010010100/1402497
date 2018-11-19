@@ -1,14 +1,21 @@
 package ca.cours5b5.sebastienhamel.proxy;
 
+import android.util.Log;
+
 import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.cours5b5.sebastienhamel.controleurs.Action;
+import ca.cours5b5.sebastienhamel.controleurs.ControleurAction;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.sebastienhamel.global.GCommande;
+import ca.cours5b5.sebastienhamel.global.GConstantes;
 
 public class ProxyListe extends Proxy implements Fournisseur {
 
@@ -22,15 +29,21 @@ public class ProxyListe extends Proxy implements Fournisseur {
 
     public ProxyListe(String cheminServeur) {
         super(cheminServeur);
+        noeudsAjoutes = new ArrayList<>();
     }
 
     public void setActionNouvelItem(GCommande commande){
 
-        sd
+        actionNouvelItem = ControleurAction.demanderAction(commande);
+
 
     }
 
     public void ajouterValeur(Object valeur){
+
+        DatabaseReference nouveauNoeud = noeudServeur.push();
+        nouveauNoeud.setValue(valeur);
+        noeudsAjoutes.add(nouveauNoeud);
 
 
 
@@ -39,29 +52,71 @@ public class ProxyListe extends Proxy implements Fournisseur {
     @Override
     public void connecterAuServeur() {
         super.connecterAuServeur();
+        Log.d("test1", noeudServeur.toString());
         creerListener();
+        requete = getRequete();
+        requete.addChildEventListener(childEventListener);
 
     }
 
     private void creerListener(){
 
+        childEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
+                Object valeurAjoutee = dataSnapshot.getValue();
+                Log.d("test2", valeurAjoutee.toString());
+
+                if(actionNouvelItem != null){
+
+                    actionNouvelItem.setArguments(valeurAjoutee);
+                    actionNouvelItem.executerDesQuePossible();
+
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
 
     }
 
     protected Query getRequete(){
 
-        return null;
+        return noeudServeur.orderByValue().limitToLast(GConstantes.NOMBRE_DE_VALEURS_A_CHANGER_DU_SERVEUR_PAR_DEFAUT);
 
     }
 
     @Override
     public void deconnecterDuServeur() {
+        noeudServeur.removeEventListener(childEventListener);
+        noeudsAjoutes.clear();
         super.deconnecterDuServeur();
     }
 
     @Override
     public void detruireValeurs() {
+
+        noeudServeur.removeValue();
 
     }
 }

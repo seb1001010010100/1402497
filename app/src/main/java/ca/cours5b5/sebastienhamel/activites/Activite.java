@@ -25,10 +25,11 @@ public abstract class Activite extends AppCompatActivity {
     protected void initialiserControleurModeles(Bundle savedInstanceState) {
 
         ControleurModeles.setSequenceDeChargement(
+                new Transition(getIntent().getExtras()),
                 Serveur.getInstance(),
                 new SauvegardeTemporaire(savedInstanceState),
-                Disque.getInstance(),
-                new Transition(getIntent().getExtras())
+                Disque.getInstance()
+
                 );
 
     }

@@ -1,5 +1,7 @@
 package ca.cours5b5.sebastienhamel.usagers;
 
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UsagerCourant {
@@ -19,7 +21,9 @@ public class UsagerCourant {
 
         if(siUsagerConnecte()){
 
+
            return FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
         }
 

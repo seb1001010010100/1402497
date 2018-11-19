@@ -36,7 +36,7 @@ public final class Disque extends SourceDeDonnees {
         File fichier = getFichier(cheminSauvegarde);
 
         try {
-
+            Log.d("test","disque " + cheminSauvegarde);
             String json = new String(Files.readAllBytes(fichier.toPath()));
 
             Map<String, Object> objetJson = Jsonification.aPartirChaineJson(json);
@@ -65,6 +65,7 @@ public final class Disque extends SourceDeDonnees {
 
             OutputStream outputStream = new FileOutputStream(fichier);
 
+
             outputStream.write(json.getBytes());
 
             outputStream.close();
@@ -86,8 +87,8 @@ public final class Disque extends SourceDeDonnees {
 
         String nomModele = getNomModele(cheminSauvegarde);
         String nomFichier = getNomFichier(nomModele);
-
-        return new File(repertoireRacine, nomFichier);
+        Log.d("test","fichier " + repertoireRacine + cheminSauvegarde);
+        return new File(repertoireRacine + "/" + cheminSauvegarde, nomFichier);
 
     }
 

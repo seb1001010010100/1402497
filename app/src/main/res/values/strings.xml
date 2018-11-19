@@ -22,5 +22,6 @@
 
     <string name="connexion">Connexion</string>
     <string name="deconnexion">Déconnexion</string>
+    <string name="coop">"Jouer En-ligne"</string>
 
 </resources>

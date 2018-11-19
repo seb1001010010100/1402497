@@ -44,4 +44,18 @@
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="34dp" />
+
+    <Button
+        android:id="@+id/bouton_coop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/coop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bouton_parametres"
+        app:layout_constraintVertical_bias="0.0" />
 </ca.cours5b5.sebastienhamel.vues.VMenuPrincipal>

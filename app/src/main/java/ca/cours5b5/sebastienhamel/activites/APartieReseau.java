@@ -3,7 +3,9 @@ package ca.cours5b5.sebastienhamel.activites;
 import android.os.Bundle;
 
 import ca.cours5b5.sebastienhamel.R;
+import ca.cours5b5.sebastienhamel.controleurs.ControlleurPartieReseau;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.sebastienhamel.global.GConstantes;
 
 public class APartieReseau extends Activite implements Fournisseur {
 
@@ -16,17 +18,22 @@ public class APartieReseau extends Activite implements Fournisseur {
     @Override
     protected void onPause() {
         super.onPause();
+        ControlleurPartieReseau.getInstance().detruireSauvegardeServeur();
+        ControlleurPartieReseau.getInstance().deconnecterDuServeur();
 
-        asd
     }
 
     @Override
     protected void onResume() {
+
         super.onResume();
+        ControlleurPartieReseau.getInstance().connecterAuServeur();
     }
 
     @Override
     protected void onDestroy() {
+
         super.onDestroy();
+
     }
 }

@@ -25,6 +25,9 @@ public class VMenuPrincipal extends Vue {
     private Action actionConnexion;
     private Action actionDeconnexion;
 
+    private Button boutonCoop;
+    private Action actionOnline;
+
     public VMenuPrincipal(Context context) {
         super(context);
     }
@@ -64,6 +67,8 @@ public class VMenuPrincipal extends Vue {
 
         boutonConnexion = findViewById(R.id.bouton_connection);
 
+        boutonCoop = findViewById(R.id.bouton_coop);
+
     }
 
     private void demanderActions() {
@@ -76,6 +81,8 @@ public class VMenuPrincipal extends Vue {
 
         actionDeconnexion = ControleurAction.demanderAction(GCommande.DECONNEXION);
 
+        actionOnline = ControleurAction.demanderAction(GCommande.JOINDRE_OU_CREER_PARTIE_RESEAU);
+
     }
 
 
@@ -87,6 +94,8 @@ public class VMenuPrincipal extends Vue {
 
         installerListenerConnection();
 
+        installerListenerEnligne();
+
     }
 
     private void installerListenerPartie() {
@@ -95,6 +104,17 @@ public class VMenuPrincipal extends Vue {
             @Override
             public void onClick(View view) {
                 actionPartie.executerDesQuePossible();
+            }
+        });
+
+    }
+
+    private void installerListenerEnligne() {
+
+        boutonCoop.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionOnline.executerDesQuePossible();
             }
         });
 

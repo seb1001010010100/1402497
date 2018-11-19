@@ -1,5 +1,7 @@
 package ca.cours5b5.sebastienhamel.controleurs;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,7 @@ import ca.cours5b5.sebastienhamel.modeles.Identifiable;
 import ca.cours5b5.sebastienhamel.modeles.MParametres;
 import ca.cours5b5.sebastienhamel.modeles.MParametresPartie;
 import ca.cours5b5.sebastienhamel.modeles.MPartie;
+import ca.cours5b5.sebastienhamel.modeles.MPartieReseau;
 import ca.cours5b5.sebastienhamel.modeles.Modele;
 import ca.cours5b5.sebastienhamel.donnees.Disque;
 import ca.cours5b5.sebastienhamel.usagers.UsagerCourant;
@@ -136,6 +139,18 @@ public final class ControleurModeles {
                 }
             });
 
+        }else if(nomModele.equals(MPartieReseau.class.getSimpleName())){
+
+            getModele(MParametres.class.getSimpleName(), new ListenerGetModele() {
+                @Override
+                public void reagirAuModele(Modele modele) {
+
+                    MParametres mParametres = (MParametres) modele;
+                    listenerGetModele.reagirAuModele(new MPartieReseau(mParametres.getParametresPartie().cloner()));
+
+                }
+            });
+
         }else{
 
             throw new ErreurModele("Modèle inconnu: " + nomModele);
@@ -182,7 +197,16 @@ public final class ControleurModeles {
             @Override
             public void reagirErreur(Exception e) {
 
-                chargementViaSourceSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
+                if(indiceSourceCourante == sequenceDeChargement.length -1){
+
+                    terminerChargement(modele,listenerGetModele);
+
+                }else{
+
+                    chargementViaSourceSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
+
+                }
+
 
             }
         });

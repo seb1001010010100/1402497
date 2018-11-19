@@ -18,5 +18,6 @@
 
     <string name="connexion">Connect</string>
     <string name="deconnexion">Disconnect</string>
+    <string name="coop">Play Online</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package ca.cours5b5.sebastienhamel.donnees;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,14 +25,22 @@ public final class Serveur extends SourceDeDonnees {
     public void chargerModele(String cheminSauvegarde, final ListenerChargement listenerChargement) {
 
         if(verifyNomModele(cheminSauvegarde)){
-
+            Log.d("test","serveur " + cheminSauvegarde);
             DatabaseReference noeud = FirebaseDatabase.getInstance().getReference(cheminSauvegarde);
             noeud.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
 
-                    Map<String, Object> objetJson = (Map<String, Object>) dataSnapshot.getValue();
-                    listenerChargement.reagirSucces(objetJson);
+                        Map<String, Object> objetJson = (Map<String, Object>) dataSnapshot.getValue();
+                        listenerChargement.reagirSucces(objetJson);
+
+                    }else{
+
+                        listenerChargement.reagirErreur(new Exception());
+
+                    }
+
 
                 }
 
