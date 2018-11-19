@@ -19,6 +19,7 @@ import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.sebastienhamel.global.GCommande;
 import ca.cours5b5.sebastienhamel.global.GConstantes;
+import ca.cours5b5.sebastienhamel.usagers.UsagerCourant;
 
 public class AMenuPrincipal extends Activite implements Fournisseur {
 
@@ -177,7 +178,7 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
 
                 buttonConnection.setText("deconnexion");
-                Log.d("Connection", "connected");
+                Log.d("Connection", "connected" + UsagerCourant.getId());
 
             }else{
 
