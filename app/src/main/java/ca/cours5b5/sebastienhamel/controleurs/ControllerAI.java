@@ -24,8 +24,6 @@ public final class ControllerAI {
 
         this.grid = grid;
         this.numberToWin = numberToWin;
-        //Random r = new Random();
-        //int randomColumn = r.nextInt(grid[0].length);
         int bestMove = evaluateBestMoves();
 
         return bestMove;
@@ -73,11 +71,16 @@ public final class ControllerAI {
                 if(grid[row][column] == GConstantes.INDICE_NO_ONE){
 
                     movesCoordinates[column] = row;
+                    //Log.d("test", "["+row+"]" + "[" + column + "]" + " = " + movesCoordinates[column]  );
+                    break;
 
+                }if(row == grid.length - 1 && grid[row][column] !=GConstantes.INDICE_NO_ONE){
+
+                    movesCoordinates[column] = -1;
+                    //Log.d("test", "["+row+"]" + "[" + column + "]" + " = " + movesCoordinates[column]  );
                     break;
 
                 }
-
 
 
             }
@@ -93,9 +96,12 @@ public final class ControllerAI {
         int[] lanesScores = new int[movesCoordinates.length];
 
         for(int column = 0; column < movesCoordinates.length; column++){
+            
+            if(movesCoordinates[column] != -1){
 
+                lanesScores[column] = evaluateLane(movesCoordinates[column], column);
 
-            lanesScores[column] = evaluateLane(movesCoordinates[column], column);
+            }
 
 
         }
@@ -111,7 +117,7 @@ public final class ControllerAI {
         score += evaluateHorizontal(row, column);
         score += evaluateDiagonalLeft(row, column);
         score += evaluateDiagonalRight(row, column);
-        //Log.d("TEST", "["+row+"]" + "["+column+"] = " + score);
+
         return score;
 
     }
@@ -132,7 +138,6 @@ public final class ControllerAI {
 
                 }else if(player == grid[row][column]){
 
-                    Log.d("test", player + " colum" + column + " number ");
                     return lookLeft(row, column - 1, (numberOfTime + 1), player);
 
                 }
@@ -375,7 +380,7 @@ public final class ControllerAI {
     private int evaluate(int numberOfTime,int player){
 
         int score = 0;
-        Log.d("test", numberToWin + " " + numberOfTime);
+
         if(player == GConstantes.INDICE_NO_ONE){
 
             score += GConstantes.SCORE_RIEN;

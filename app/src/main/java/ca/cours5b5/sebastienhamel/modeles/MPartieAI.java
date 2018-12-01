@@ -95,7 +95,7 @@ public class MPartieAI extends MPartie {
 
                 if(completeGrid[row][coup] == 0){
                     completeGrid[row][coup] = indiceJoueur;
-                    //Log.d("test", "joueur : "  + completeGrid[row][coup] + ", row: " + row + ", column : "+ coup);
+
                     break;
 
                 }

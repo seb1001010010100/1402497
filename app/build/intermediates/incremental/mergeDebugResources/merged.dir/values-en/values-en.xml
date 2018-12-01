@@ -3,12 +3,14 @@
     <string name="JAUNE">yellow</string>
     <string name="ROUGE">red</string>
     <string name="bonjour">Hello!</string>
+    <string name="bot">Bot</string>
     <string name="connexion">login</string>
     <string name="deconnexion">logout</string>
     <string name="effacer_partie_courante">Delete current game</string>
     <string name="en_attente_adversaire">Waiting for an opponent…</string>
     <string name="entete">↓\n↓\n↓</string>
     <string name="hauteur">Height: </string>
+    <string name="humain">Human</string>
     <string name="jouer">Play</string>
     <string name="jouer_enligne">Play on-line</string>
     <string name="joueur1">player1</string>

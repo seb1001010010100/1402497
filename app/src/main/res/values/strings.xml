@@ -35,6 +35,9 @@
     <string name="ROUGE">rouge</string>
     <string name="JAUNE">jaune</string>
 
-    <string name="partie_AI">Jouer Vs Ordinateur</string>
+    <string name="partie_AI">Jouer Vs Ordinateur</string>humain
+
+    <string name="humain">Humain</string>
+    <string name="bot">Ordinateur</string>
 
 </resources>

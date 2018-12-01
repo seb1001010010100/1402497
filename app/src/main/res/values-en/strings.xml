@@ -31,4 +31,7 @@
     <string name="JAUNE">yellow</string>
 
     <string name="partie_AI">Play Vs Bot</string>
+
+    <string name="humain">Human</string>
+    <string name="bot">Bot</string>
 </resources>

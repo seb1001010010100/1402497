@@ -16,12 +16,12 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.0.aar\\ae2ce3ddd69f0fb5bb1077c02db2c7f2\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_item_background_holo_light.xml.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_item_background_holo_light.xml.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
@@ -68,16 +68,16 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_dark.xml.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_dark.xml.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fui_check_email_layout.xml.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\a803455f31349bf5a4a0bcbbf7431e43\\res\\layout\\design_layout_snackbar.xml"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_menu.xml.flat",
@@ -204,12 +204,12 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\a803455f31349bf5a4a0bcbbf7431e43\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_fui_idp_button_background_google.xml.flat",
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-ui-auth-3.3.1.aar\\2dbb384174a5e46c812f587fafd6bb3f\\res\\drawable-v21\\fui_idp_button_background_google.xml"
+    },
+    {
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -360,12 +360,12 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\9d0037c483b7eaa6a773deee6159f442\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21_design_bottom_sheet_slide_out.xml.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\a803455f31349bf5a4a0bcbbf7431e43\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
-    },
-    {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fui_ic_twitter_bird_white_24dp.xml.flat",
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-ui-auth-3.3.1.aar\\2dbb384174a5e46c812f587fafd6bb3f\\res\\drawable\\fui_ic_twitter_bird_white_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\anim-v21_design_bottom_sheet_slide_out.xml.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\a803455f31349bf5a4a0bcbbf7431e43\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -428,12 +428,12 @@
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\df2709aeda537fe24dcef431e6859c12\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fui_idp_button_google.xml.flat",
-        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-ui-auth-3.3.1.aar\\2dbb384174a5e46c812f587fafd6bb3f\\res\\layout\\fui_idp_button_google.xml"
-    },
-    {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fui_phone_layout.xml.flat",
         "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-ui-auth-3.3.1.aar\\2dbb384174a5e46c812f587fafd6bb3f\\res\\layout\\fui_phone_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\layout_fui_idp_button_google.xml.flat",
+        "source": "C:\\Users\\sebas\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-ui-auth-3.3.1.aar\\2dbb384174a5e46c812f587fafd6bb3f\\res\\layout\\fui_idp_button_google.xml"
     },
     {
         "merged": "C:\\Users\\sebas\\Dropbox\\Workstation\\Application Mobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fui_ic_googleg_color_24dp.xml.flat",
