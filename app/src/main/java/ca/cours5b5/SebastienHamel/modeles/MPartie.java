@@ -117,7 +117,7 @@ public class MPartie extends Modele implements Fournisseur {
     }
 
 
-    private void prochaineCouleurCourante() {
+    public void prochaineCouleurCourante() {
 
         switch (couleurCourante) {
 
@@ -212,6 +212,7 @@ public class MPartie extends Modele implements Fournisseur {
     public GCouleur getCouleurCourante() {
         return couleurCourante;
     }
+
 
 
 }

@@ -17,6 +17,7 @@ import ca.cours5b5.sebastienhamel.global.GConstantes;
 import ca.cours5b5.sebastienhamel.modeles.Identifiable;
 import ca.cours5b5.sebastienhamel.modeles.MParametres;
 import ca.cours5b5.sebastienhamel.modeles.MPartie;
+import ca.cours5b5.sebastienhamel.modeles.MPartieAI;
 import ca.cours5b5.sebastienhamel.modeles.MPartieReseau;
 import ca.cours5b5.sebastienhamel.modeles.Modele;
 import ca.cours5b5.sebastienhamel.donnees.Disque;
@@ -229,6 +230,10 @@ public final class ControleurModeles {
 
             creerPartieReseau(listenerGetModele);
 
+        }else if(nomModele.equals(MPartieAI.class.getSimpleName())){
+
+            creerPartieAI(listenerGetModele);
+
         }else{
 
             throw new ErreurModele("nomModèle inconnu: " + nomModele);
@@ -259,6 +264,19 @@ public final class ControleurModeles {
                 MParametres mParametres = (MParametres) modele;
 
                 listenerGetModele.reagirAuModele(new MPartieReseau(mParametres.getParametresPartie().cloner()));
+
+            }
+        });
+    }
+
+    private static void creerPartieAI(final ListenerGetModele listenerGetModele) {
+        getModele(MParametres.class.getSimpleName(), new ListenerGetModele() {
+            @Override
+            public void reagirAuModele(Modele modele) {
+
+                MParametres mParametres = (MParametres) modele;
+
+                listenerGetModele.reagirAuModele(new MPartieAI(mParametres.getParametresPartie().cloner()));
 
             }
         });

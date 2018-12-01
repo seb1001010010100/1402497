@@ -32,4 +32,15 @@ public final class GConstantes {
 
     public static final int DELAIS_MESSAGE_AVEC_ACTION=2000;
 
+    public static final int INDICE_NO_ONE = 0;
+    public static final int INDICE_HUMAIN = 1;
+    public static final int INDICE_AI = 2;
+
+    public static final int SCORE_RIEN= 0;
+    public static final int SCORE_FAIBLE = 1;
+    public static final int SCORE_ELEVE = 5;
+    public static final int SCORE_PERTE = 100;
+    public static final int SCORE_GAIN = 1000;
+
+
 }

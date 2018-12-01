@@ -20,7 +20,7 @@ import ca.cours5b5.sebastienhamel.controleurs.ControleurModeles;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.sebastienhamel.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.sebastienhamel.global.GCommande;
-import ca.cours5b5.sebastienhamel.modeles.MParametres;
+
 
 import static ca.cours5b5.sebastienhamel.global.GConstantes.CODE_CONNEXION_FIREBASE;
 
@@ -47,6 +47,8 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
         fournirActionDeconnexion();
 
         fournirActionJoindreOuCreerPartieReseau();
+
+        fournirActionDemarrerPartieAI();
 
     }
 
@@ -122,6 +124,20 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
                 });
     }
 
+    private void fournirActionDemarrerPartieAI() {
+        ControleurAction.fournirAction(this,
+                GCommande.DEMARRER_PARTIE_AI,
+                new ListenerFournisseur() {
+
+                    @Override
+                    public void executer(Object... args) {
+
+                        transitionPartieAI();
+
+                    }
+                });
+    }
+
     private void transitionAttendreAdversaire() {
 
         Intent intentionAttendreAdversaire = new Intent(this, AEnAttenteAdversaire.class);
@@ -143,6 +159,13 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
         Intent intentionPartie = new Intent(this, APartie.class);
         startActivity(intentionPartie);
+
+    }
+
+    private void transitionPartieAI() {
+
+        Intent intentionPartieAI = new Intent(this, APartieAI.class);
+        startActivity(intentionPartieAI);
 
     }
 
@@ -181,20 +204,18 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == CODE_CONNEXION_FIREBASE) {
+            if (requestCode == CODE_CONNEXION_FIREBASE) {
 
-            //IdpResponse response = IdpResponse.fromResultIntent(data);
+                //IdpResponse response = IdpResponse.fromResultIntent(data);
 
-            if (resultCode == RESULT_OK) {
 
-                // Connexion réussie
+                    // Connexion réussie
 
-            } else {
+                } else {
 
-                // connexion échouée
-            }
+                    // connexion échouée
+                }
         }
-    }
-
-
 }
+
+

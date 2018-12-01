@@ -14,7 +14,7 @@
     <string name="jouer">Play</string>
     <string name="jouer_enligne">Play on-line</string>
 
-
+    <string name="entete">↓\n↓\n↓</string>
     <string name="joueur1">player1</string>
     <string name="joueur2">player2</string>
 
@@ -30,5 +30,5 @@
     <string name="ROUGE">red</string>
     <string name="JAUNE">yellow</string>
 
-
+    <string name="partie_AI">Play Vs Bot</string>
 </resources>
